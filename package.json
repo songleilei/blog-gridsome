@@ -9,6 +9,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@gridsome/source-strapi": "^0.2.0",
+    "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "gridsome": "^0.7.0",
     "markdown-it": "^11.0.1"

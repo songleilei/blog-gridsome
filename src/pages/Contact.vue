@@ -39,6 +39,7 @@
                             >
                                 <label>Name</label>
                                 <input
+                                    v-model="form.name"
                                     type="text"
                                     class="form-control"
                                     placeholder="Name"
@@ -55,6 +56,7 @@
                             >
                                 <label>Email Address</label>
                                 <input
+                                    v-model="form.email"
                                     type="email"
                                     class="form-control"
                                     placeholder="Email Address"
@@ -71,6 +73,7 @@
                             >
                                 <label>Phone Number</label>
                                 <input
+                                    v-model="form.phone"
                                     type="tel"
                                     class="form-control"
                                     placeholder="Phone Number"
@@ -87,6 +90,7 @@
                             >
                                 <label>Message</label>
                                 <textarea
+                                    v-model="form.message"
                                     rows="5"
                                     class="form-control"
                                     placeholder="Message"
@@ -103,6 +107,7 @@
                             type="submit"
                             class="btn btn-primary"
                             id="sendMessageButton"
+                            @click.prevent="onSubmit"
                         >
                             Send
                         </button>
@@ -114,7 +119,33 @@
 </template>
 
 <script>
-export default {}
+import axios from 'axios'
+export default {
+    data() {
+        return {
+            form: {
+                name: '',
+                email: '',
+                phone: '',
+                message: '',
+            },
+        }
+    },
+    methods: {
+        async onSubmit() {
+            try {
+                await axios({
+                    method: 'post',
+                    url: 'http://localhost:1337/contacts',
+                    data: this.form,
+                })
+                alert('success')
+            } catch (error) {
+                alert('fail')
+            }
+        },
+    },
+}
 </script>
 
 <style></style>
