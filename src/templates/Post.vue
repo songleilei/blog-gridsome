@@ -1,45 +1,43 @@
 <template>
-    <Layout>
-        <!-- Page Header -->
-        <header
-            class="masthead"
-            :style="{
-                backgroundImage: `url(${GRIDSOME_API_URL}${
-                    $page.post.cover.url
-                })`,
-            }"
-        >
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <div class="post-heading">
-                            <h1>
-                                {{ $page.post.title }}
-                            </h1>
-                            <span class="meta"
-                                >Posted by
-                                <a href="#">Start Bootstrap</a>
-                                on August 24, 2019</span
-                            >
-                        </div>
-                    </div>
-                </div>
+  <Layout>
+    <!-- Page Header -->
+    <header
+      class="masthead"
+      :style="{
+        backgroundImage: `url(/img/home-bg.jpg)`,
+      }"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>
+                {{ $page.post.title }}
+              </h1>
+              <span class="meta"
+                >Posted by
+                <a href="#">Start Bootstrap</a>
+                on August 24, 2019</span
+              >
             </div>
-        </header>
+          </div>
+        </div>
+      </div>
+    </header>
 
-        <!-- Post Content -->
-        <article>
-            <div class="container">
-                <div class="row">
-                    <div
-                        class="col-lg-8 col-md-10 mx-auto"
-                        v-html="mdToHtml($page.post.content)"
-                    ></div>
-                </div>
-            </div>
-        </article>
-    </Layout>
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-lg-8 col-md-10 mx-auto"
+            v-html="mdToHtml($page.post.content)"
+          ></div>
+        </div>
+      </div>
+    </article>
+  </Layout>
 </template>
 
 <page-query>
@@ -62,17 +60,17 @@ query ($id: ID!) {
 </page-query>
 
 <script>
-import Markdownit from 'markdown-it'
-const md = new Markdownit()
+import Markdownit from "markdown-it";
+const md = new Markdownit();
 
 export default {
-    name: 'PostPage',
-    methods: {
-        mdToHtml(markdown) {
-            return md.render(markdown)
-        },
+  name: "PostPage",
+  methods: {
+    mdToHtml(markdown) {
+      return md.render(markdown);
     },
-}
+  },
+};
 </script>
 
 <style></style>
